@@ -1,5 +1,5 @@
 import { tests } from "@prisma/client";
-import { createNewTest, findCategory, findTeacherDisciplinedId } from "../repositories/testRepository.js";
+import { createNewTest, findCategory } from "../repositories/testRepository.js";
 
 export type CreateTestData = Omit<tests, "id">
 
