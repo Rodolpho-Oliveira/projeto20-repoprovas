@@ -27,3 +27,32 @@ export async function getByDiscipline() {
         }
     }})
 }
+
+
+export async function getByTeacher() {
+    return await db.teachersDisciplines.findMany({select:{
+        id: true,
+        discipline:{
+            select:{
+                name: true
+            }
+        },
+        teacher:{
+            select:{
+                name: true
+            }
+        },
+        test:{
+            select:{
+                id:true,
+                name: true,
+                pdfUrl: true,
+                category:{
+                    select:{
+                        name: true
+                    }
+                }
+            }
+        }
+    }})
+}
