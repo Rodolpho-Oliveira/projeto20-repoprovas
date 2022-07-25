@@ -19,6 +19,9 @@ export async function checkSignUpInformation(email: string, password: string, re
 }
 
 export async function checkSingInInformation({email, password}: CreateUserData) {
+    if(!email || !password){
+        throw {type: "Missing information", status: 422}
+    }
     const check = await checkUserExists(email)
     if(!check){
         throw {type: "Wrong email", status: 401}
