@@ -5,6 +5,8 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
+    "build": "tsc",
+	  "start": "node dist/app/server.js",
     "test": "NODE_OPTIONS=--experimental-vm-modules jest -i"
   },
   "keywords": [],
