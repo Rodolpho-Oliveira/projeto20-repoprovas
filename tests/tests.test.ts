@@ -55,6 +55,10 @@ describe("Get all tests", () => {
     it("Get all tests by discipline with the wrong token and return status 401",async () => {
         const response = await supertest(app).get("/test/discipline").set("Authorization", `Bearer 123`)
         expect(response.status).toEqual(401)
-        expect(response.body).toBeDefined()
+    })
+
+    it("Get all tests by teacher with the wrong token and return status 401",async () => {
+        const response = await supertest(app).get("/test/teacher").set("Authorization", `Bearer 123`)
+        expect(response.status).toEqual(401)
     })
 })
