@@ -5,7 +5,16 @@ export async function createNewTest(createTestData: CreateTestData) {
     await db.tests.create({data: createTestData})
 }
 
-export async function findCategory(categoryId: number) {
-    const {name} = await db.categories.findUnique({where: {id: categoryId}})
-    return name
+export async function findTeacherDisciplineById(teacherDisciplinedId: number) {
+    const id = await db.teachersDisciplines.findUnique({where: {id: teacherDisciplinedId}})
+    if(!id){
+        throw {type: "Teacher/Discipline id not found", status: 404}
+    }
+}
+
+export async function findCategoryById(categoryId: number) {
+    const id = await db.categories.findUnique({where: {id: categoryId}})
+    if(!id){
+        throw {type: "Category not found", status: 404}
+    }
 }
